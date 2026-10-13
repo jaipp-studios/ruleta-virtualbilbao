@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deja tu reseña y gira la ruleta</title>
+<link rel="stylesheet" href="assets/css/ruleta-virtualbilbao.css">
+</head>
+<body>
+<div class="tarjeta">
+
+  <div class="local">
+    <div class="ini" id="inicial">O</div>
+    <img class="logo" id="logo" alt="" hidden>
+    <div>
+      <h1 id="nombreLocal">Nombre del local</h1>
+      <p>Bilbao · Gracias por jugar</p>
+    </div>
+  </div>
+
+  <!-- 1. Reseña -->
+  <section class="paso on" id="p1">
+    <h2>¿Qué tal la experiencia?</h2>
+    <p class="sub">Déjanos una reseña en Google. Son treinta segundos y luego hay ruleta.</p>
+    <button class="btn con-icono" id="btnGoogle">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.4l2.9 5.9 6.5.95-4.7 4.6 1.1 6.5L12 17.3l-5.8 3.05 1.1-6.5-4.7-4.6 6.5-.95z"/></svg>
+      Dejar reseña en Google
+    </button>
+    <button class="btn ruleta" id="btnYaEsta">
+      <span class="brillo"></span>
+      🎡 Ruleta
+    </button>
+    <p class="aviso">Enseña la reseña al personal antes de girar.</p>
+  </section>
+
+  <!-- 2. Ruleta -->
+  <section class="paso" id="p4">
+    <h2>La ruleta de la casa</h2>
+    <div class="destacado">
+      <span class="ico">👀</span>
+      <span><b>Enseña tu reseña al personal</b> y que te den el visto bueno antes de girar.</span>
+    </div>
+    <p class="sub" id="subRuleta">Una tirada por reseña. Lo que salga, sale.</p>
+    <div class="ruleta-caja">
+      <div class="aguja"></div>
+      <div class="eje">GIRA</div>
+      <svg viewBox="0 0 400 400" id="rueda" aria-label="Ruleta de premios">
+        <g id="giro"></g>
+      </svg>
+    </div>
+    <button class="btn" id="btnGirar">Girar la ruleta</button>
+  </section>
+
+  <!-- 4. Premio -->
+  <section class="paso premio" id="p5">
+    <span class="emoji" id="pEmoji">🎉</span>
+    <h2 id="pTitulo"></h2>
+    <p class="sub" id="pTexto"></p>
+    <div class="codigo" id="pCodigo">
+      <span id="pCod">—<small>Enséñaselo en recepción</small></span>
+      <button class="btn sec copiar" id="btnCopiar">Copiar</button>
+    </div>
+    <div class="letras">
+      <p class="caduca" id="pCaduca"></p>
+      <p class="nota" id="pNota"></p>
+    </div>
+    <button class="btn sec" id="btnOtra">Tirar otra vez</button>
+  </section>
+
+  <p class="pie">Te digitalizamos el local en un toque.<br><strong>JAIPP Studios</strong></p>
+</div>
+
+<div class="conf" id="conf"></div>
+
+<script src="assets/js/ruleta-virtualbilbao.js" defer></script>
+</body>
+</html>
