@@ -1,0 +1,160 @@
+:root{
+  --verde:#1D9E75;
+  --verde-hondo:#0F2A21;
+  --verde-medio:#14634A;
+  --crema:#FFFDF7;
+  --mostaza:#F2B544;
+  --tinta:#12211C;
+  --gris:#6E7F79;
+  --radio:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:'Poppins',system-ui,sans-serif;
+  background:var(--verde-hondo);
+  background-image:radial-gradient(circle at 50% -10%, #1a4638 0%, var(--verde-hondo) 60%);
+  color:var(--tinta);
+  display:flex;justify-content:center;
+  padding:20px 16px 40px;
+  -webkit-font-smoothing:antialiased;
+}
+.tarjeta{
+  width:100%;max-width:420px;
+  background:var(--crema);
+  border-radius:var(--radio);
+  padding:28px 22px 30px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35);
+  align-self:center;
+  overflow:hidden;
+}
+.local{
+  display:flex;align-items:center;gap:12px;
+  padding-bottom:18px;margin-bottom:22px;
+  border-bottom:1px solid rgba(18,33,28,.1);
+}
+.local .ini{
+  width:44px;height:44px;flex:none;border-radius:14px;
+  background:var(--verde);color:#fff;
+  display:grid;place-items:center;
+  font-family:'Bricolage Grotesque',serif;font-weight:800;font-size:19px;
+}
+.local .logo{
+  height:46px;width:auto;max-width:130px;flex:none;
+  object-fit:contain;object-position:left center;
+}
+.local .logo[hidden]{display:none}
+.local h1{font-family:'Bricolage Grotesque',sans-serif;font-size:19px;font-weight:800;letter-spacing:-.02em}
+.local p{font-size:12.5px;color:var(--gris)}
+
+h2{font-family:'Bricolage Grotesque',sans-serif;font-size:27px;line-height:1.12;font-weight:800;letter-spacing:-.03em;margin-bottom:10px}
+.sub{font-size:14.5px;line-height:1.55;color:var(--gris);margin-bottom:24px}
+
+.paso{display:none;animation:entra .35s ease both}
+.paso.on{display:block}
+@keyframes entra{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.btn.con-icono{display:flex;align-items:center;justify-content:center;gap:9px}
+.btn.con-icono svg{width:20px;height:20px;flex:none}
+
+.btn.ruleta{
+  position:relative;overflow:hidden;margin-top:14px;
+  background:linear-gradient(135deg,#F2B544 0%,#E8952B 100%);
+  color:var(--tinta);
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+  font-size:23px;letter-spacing:-.01em;padding:21px 18px;
+  box-shadow:0 8px 0 #C67A1E, 0 14px 26px rgba(230,150,45,.4);
+  animation:latido 2.4s ease-in-out infinite;
+}
+.btn.ruleta:hover{filter:brightness(1.04)}
+.btn.ruleta:active{transform:translateY(5px);box-shadow:0 3px 0 #C67A1E, 0 6px 14px rgba(230,150,45,.35)}
+@keyframes latido{0%,88%,100%{transform:scale(1)}92%{transform:scale(1.035)}96%{transform:scale(.995)}}
+.brillo{
+  position:absolute;top:0;left:-60%;width:45%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);
+  animation:pasa 3.2s ease-in-out infinite;
+}
+@keyframes pasa{0%,55%{left:-60%}85%,100%{left:120%}}
+
+.destacado{
+  display:flex;align-items:center;gap:11px;
+  background:#FFF4DC;border:1.5px dashed #E0A93C;
+  border-radius:16px;padding:14px 16px;margin-bottom:20px;
+  font-size:14px;line-height:1.45;color:#6B4E14;text-align:left;
+}
+.destacado b{font-weight:600;color:#4A360C}
+.destacado .ico{font-size:20px;flex:none}
+
+.btn{
+  display:block;width:100%;border:0;cursor:pointer;
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:16px;
+  padding:17px 18px;border-radius:16px;
+  background:var(--verde);color:#fff;
+  transition:filter .15s ease,transform .12s ease;
+}
+.btn:hover{filter:brightness(1.06)}
+.btn:active{transform:translateY(1px)}
+.btn:disabled{background:#C9D3CF;color:#8A9691;cursor:not-allowed}
+.btn.sec{background:transparent;color:var(--verde-medio);border:1.5px solid rgba(20,99,74,.28);margin-top:10px}
+.btn:focus-visible{outline:2px solid var(--verde-hondo);outline-offset:3px}
+.aviso{font-size:12.5px;color:var(--gris);text-align:center;margin-top:14px;line-height:1.5}
+
+/* botón copiar código (antes iba con style="" inline) */
+.btn.copiar{width:auto;margin:0;padding:10px 14px;font-size:13px;border-color:rgba(255,255,255,.3);color:#fff}
+
+/* estado inicial del botón "tirar otra vez" (antes iba con style="" inline) */
+#btnOtra{display:none}
+
+/* ruleta */
+.ruleta-caja{position:relative;margin:4px auto 22px;width:min(320px,84vw)}
+.aguja{
+  position:absolute;top:-6px;left:50%;transform:translateX(-50%);
+  width:0;height:0;z-index:3;
+  border-left:14px solid transparent;border-right:14px solid transparent;
+  border-top:26px solid var(--tinta);
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,.25));
+}
+.ruleta-caja svg{display:block;width:100%;height:auto;border-radius:50%;
+  box-shadow:0 10px 30px rgba(15,42,33,.28), inset 0 0 0 8px var(--crema)}
+#giro{
+  transform-box:view-box;
+  transform-origin:200px 200px;      /* centro del viewBox 400x400 */
+  transition:transform 5.4s cubic-bezier(.16,.85,.2,1);
+}
+.eje{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:52px;height:52px;border-radius:50%;background:var(--crema);
+  display:grid;place-items:center;z-index:2;
+  font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:12px;color:var(--verde-medio);
+  box-shadow:0 3px 10px rgba(0,0,0,.18)}
+
+/* premio */
+.premio{text-align:center}
+.premio .emoji{font-size:52px;line-height:1;margin-bottom:12px;display:block}
+.premio h2{font-size:30px;margin-bottom:8px}
+.premio .sub{margin-bottom:0}
+.codigo{
+  margin:20px 0 6px;padding:16px;border-radius:16px;
+  background:var(--verde-hondo);color:#fff;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.codigo span{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+  font-size:clamp(17px,5.2vw,22px);letter-spacing:.05em;min-width:0;overflow-wrap:anywhere}
+.codigo small{font-size:11.5px;opacity:.65;display:block;letter-spacing:0;font-weight:400;font-family:'Poppins',sans-serif}
+.letras{margin-bottom:20px}
+.caduca{font-size:12.5px;color:var(--gris)}
+.nota{font-size:11px;color:var(--gris);opacity:.85;line-height:1.45;margin-top:6px}
+.nota:empty{display:none}
+
+.pie{margin-top:26px;padding-top:16px;border-top:1px solid rgba(18,33,28,.1);
+  text-align:center;font-size:11.5px;color:var(--gris);line-height:1.6}
+.pie strong{color:var(--verde-medio);font-weight:600}
+
+.conf{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:9}
+.conf i{position:absolute;width:9px;height:14px;border-radius:2px;animation:cae 2.6s linear forwards}
+@keyframes cae{to{transform:translateY(105vh) rotate(720deg);opacity:0}}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  #giro{transition:transform 1s linear}
+  .btn.ruleta{animation:none} .brillo{display:none}
+}
